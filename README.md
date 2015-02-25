@@ -28,7 +28,7 @@ $ vagrant ssh
 References
 ----------
 
-+ ...
++ https://github.com/github/hubot/blob/master/docs/README.md
 
 License
 -------
