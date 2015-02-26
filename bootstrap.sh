@@ -15,6 +15,8 @@ function yum() {
 addpkgs="
  npm
  redis
+
+ libicu-devel
 "
 
 rpm -qa epel-release* | egrep -q epel-release || {
