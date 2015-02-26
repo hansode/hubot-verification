@@ -25,6 +25,13 @@ su - ${user} -c "bash -ex" <<'EOS'
   if ! [[ -d mybot ]]; then
     mkdir -p mybot
     cd mybot
-    echo yo hubot
+    if [[ -f /vagrant/hubot.conf ]]; then
+      . /vagrant/hubot.conf
+    fi
+    yo hubot \
+     --adapter="${HUBOT_ADAPTER:-"hipchat"}" \
+     --owner="${HUBOT_OWNER:-"hubot-verification"}" \
+     --description="${HUBOT_DESCRIPTION:-"hubot-verification"}" \
+     <<< "Y"
   fi
 EOS
