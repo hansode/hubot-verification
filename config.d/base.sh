@@ -33,5 +33,8 @@ su - ${user} -c "bash -ex" <<'EOS'
      --owner="${HUBOT_OWNER:-"hubot-verification"}" \
      --description="${HUBOT_DESCRIPTION:-"hubot-verification"}" \
      <<< "Y"
+    git init
+    git add .
+    git commit -m 'first commit' .
   fi
 EOS
