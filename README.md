@@ -25,10 +25,51 @@ Connect to the VM.
 $ vagrant ssh
 ```
 
+Hubot-HipChat
+-------------
+
+Configure `hubot-hipchat.conf`.
+
+```
+laptop$ cp -pi hubot-hipchat.conf.example hubot-hipchat.conf
+laptop$ vi hubot-hipchat.conf
+```
+
+```
+export HUBOT_HIPCHAT_JID="<*xxx@chat.hipchat.com via https://axsh.hipchat.com/account/xmpp*>"
+export HUBOT_HIPCHAT_PASSWORD="<*PASSWORD*>"
+export HUBOT_LOG_LEVEL="debug"
+```
+
+Modify `./mybot/bin/hubot`.
+
+```
+vagrant$ cd ./mybot
+vagrant$ cp -pi ./bin/hubot ./bin/hubot.saved
+vagrant$ vi ./bin/hubot
+vagrant$ diff ./bin/hubot.saved ./bin/hubot
+```
+
+> ```
+> vagrant$ diff ./bin/hubot.saved ./bin/hubot
+> 7a8,11
+> > if [[ -f /vagrant/hubot-hipchat.conf ]]; then
+> >   . /vagrant/hubot-hipchat.conf
+> > fi
+> >
+> ```
+
+Run `bin/hubot` with hipchat adapter.
+
+```
+vagrant$ ./bin/hubot -a hipchat
+```
+
 References
 ----------
 
 + https://github.com/github/hubot/blob/master/docs/README.md
++ [Hubotの導入とHipChat Adapter設定方法 - Devlog](http://kkurahar.github.io/blog/2013/10/03/hubot-hipchat/)
 
 License
 -------

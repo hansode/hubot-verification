@@ -1,0 +1,3 @@
+HUBOT_ADAPTER="hipchat"
+HUBOT_OWNER="hubot-verification"
+HUBOT_DESCRIPTION="hubot-verification"

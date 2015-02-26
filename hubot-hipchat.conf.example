@@ -1,0 +1,3 @@
+export HUBOT_HIPCHAT_JID="<*xxx@chat.hipchat.com via https://axsh.hipchat.com/account/xmpp*>"
+export HUBOT_HIPCHAT_PASSWORD="<*PASSWORD*>"
+export HUBOT_LOG_LEVEL="debug"
