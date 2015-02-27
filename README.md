@@ -41,28 +41,37 @@ export HUBOT_HIPCHAT_PASSWORD="<*PASSWORD*>"
 export HUBOT_LOG_LEVEL="debug"
 ```
 
-Modify `./mybot/bin/hubot`.
+Create a wrapper script.
 
 ```
-vagrant$ cd ./mybot
-vagrant$ cp -pi ./bin/hubot ./bin/hubot.saved
-vagrant$ vi ./bin/hubot
-vagrant$ diff ./bin/hubot.saved ./bin/hubot
+vagrant$ vi hubot.sh
 ```
 
-> ```
-> vagrant$ diff ./bin/hubot.saved ./bin/hubot
-> 7a8,11
-> > if [[ -f /vagrant/hubot-hipchat.conf ]]; then
-> >   . /vagrant/hubot-hipchat.conf
-> > fi
-> >
-> ```
+```
+#!/bin/bash
+#
+# requires:
+#  bash
+#
+set -e
+set -o pipefail
+set -x
+
+if [[ -f /vagrant/hubot-hipchat.conf ]]; then
+  . /vagrant/hubot-hipchat.conf
+fi
+
+bin/hubot "${@}"
+```
+
+```
+vagrant$ chmod +x ./hubot.sh
+```
 
 Run `bin/hubot` with hipchat adapter.
 
 ```
-vagrant$ ./bin/hubot -a hipchat
+vagrant$ ./hubot.sh -a hipchat
 ```
 
 References
