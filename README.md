@@ -68,7 +68,7 @@ bin/hubot "${@}"
 vagrant$ chmod +x ./hubot.sh
 ```
 
-Run `bin/hubot` with hipchat adapter.
+Run `./hubot.sh` with hipchat adapter.
 
 ```
 vagrant$ ./hubot.sh -a hipchat
