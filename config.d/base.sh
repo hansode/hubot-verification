@@ -30,6 +30,7 @@ su - ${user} -c "bash -ex" <<'EOS'
     fi
     yo hubot \
      --adapter="${HUBOT_ADAPTER:-"hipchat"}" \
+     --name="${HUBOT_NAME:-"hubot-verification"}" \
      --owner="${HUBOT_OWNER:-"hubot-verification"}" \
      --description="${HUBOT_DESCRIPTION:-"hubot-verification"}" \
      <<< "Y"
