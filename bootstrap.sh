@@ -17,7 +17,7 @@ addpkgs="
  redis
 
  libicu-devel
- java-1.6.0-openjdk
+ java-1.7.0-openjdk
 "
 
 rpm -qa epel-release* | egrep -q epel-release || {
